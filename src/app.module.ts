@@ -8,6 +8,7 @@ import { RolesModule } from './roles/roles.module';
 import sequelize from "sequelize";
 import {Role} from "./roles/model/roles.model";
 import {UserRoles} from "./roles/model/user-roles.model";
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath: '.env'
@@ -20,6 +21,6 @@ import {UserRoles} from "./roles/model/user-roles.model";
     database: process.env.POSTGRES_DB,
     models: [User, Role, UserRoles],
     autoLoadModels: true
-  }), UsersModule, RolesModule,],
+  }), UsersModule, RolesModule, AuthModule,],
 })
 export class AppModule {}
