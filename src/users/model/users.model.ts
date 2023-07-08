@@ -14,7 +14,7 @@ interface UserCreationAttrs {
 @Table({tableName: 'users'})
 export class User extends Model<User, UserCreationAttrs> {
     @ApiProperty({example: '1', description: 'unique id'})
-    @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey:true})
+    @Column({type: DataType.INTEGER, autoIncrement: true, primaryKey: true})
     id: number;
     @ApiProperty({example: 'someEmail@gmail.com', description: 'user`s email'})
     @Column({type: DataType.STRING, unique: true, allowNull: false})

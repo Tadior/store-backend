@@ -37,7 +37,7 @@ export class RolesGuard implements  CanActivate {
             req.user = user;
             return user.roles.some(role => requiredRoles.includes(role.value))
         } catch (e) {
-            throw new HttpException('No access', HttpStatus.FORBIDDEN)
+            throw new HttpException('You must be Admin', HttpStatus.FORBIDDEN)
         }
     }
 }

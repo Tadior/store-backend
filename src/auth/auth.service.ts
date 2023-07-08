@@ -16,7 +16,9 @@ export class AuthService {
     }
 
     async registration(userDto: CreateUserDto) {
+        console.log(userDto)
         const existUser = await this.userService.getUserByEmail(userDto.email);
+        console.log(existUser)
         if (existUser) {
             throw new HttpException('user with such login or email already exists', HttpStatus.BAD_REQUEST)
         }

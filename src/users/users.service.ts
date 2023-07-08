@@ -14,6 +14,9 @@ export class UsersService {
     async createUser(dto: CreateUserDto) {
         const user = await this.userRepository.create(dto)
         const role = await this.roleService.getRoleByValue('User')
+        if (!role) {
+            throw new HttpException('User with this role can`t be created', HttpStatus.FORBIDDEN)
+        }
         await user.$set('roles', [role.id])
         user.roles = [role];
         return user;
