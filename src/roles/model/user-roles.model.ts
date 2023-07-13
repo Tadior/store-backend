@@ -10,12 +10,12 @@ export class UserRoles extends Model<UserRoles> {
     @ApiProperty({example: '4df5ccb3-8bc6-4334-b909-ca891aab8de0', description: 'unique id' })
     @Column({type: DataType.INTEGER, autoIncrement: true, primaryKey: true})
     id: number;
-    @ApiProperty({example: '4df5ccb3-8bc6-4334-b909-ca891aab8de1', description: 'unique roleId'})
+    @ApiProperty({example: '1', description: 'unique role id'})
     @ForeignKey(() => Role)
-    @Column({type: DataType.UUIDV4})
-    roleId: string;
-    @ApiProperty({example: '4df5ccb3-8bc6-4334-b909-ca891aab8de2', description: 'unique user id'})
+    @Column({type: DataType.NUMBER})
+    roleId: number;
+    @ApiProperty({example: '1', description: 'unique user id'})
     @ForeignKey(() => User)
-    @Column({type: DataType.UUIDV4})
-    userId: string;
+    @Column({type: DataType.NUMBER})
+    userId: number;
 }
