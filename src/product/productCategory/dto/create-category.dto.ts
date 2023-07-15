@@ -1,6 +1,6 @@
-import {IsString} from "class-validator";
+import { IsString } from 'class-validator';
 
 export class createCategoryDto {
-    @IsString({message: 'value must be string' })
-    readonly name: string;
+  @IsString({ message: 'value must be string' })
+  readonly name: string;
 }
